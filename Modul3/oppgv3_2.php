@@ -3,13 +3,13 @@
 viser telling på skjerm med ett sekund mellomrom
 beregner summen av tall 0-9
 viser summen 2sek etter ferdig telling
-*/
+*/header('Content-Type: text/html');
+header('Cache-Control: no-cache');
+header('Connection: keep-alive');
 ob_implicit_flush(0);
 ob_end_flush();
 //lage pausefunksjon usleep står for delay i microsek
-function pause($seconds) {
-    usleep($seconds *1000000);
-}
+
 
 // lage en variabel som holder sum/tellingen
 $sum = 0;
@@ -22,12 +22,12 @@ for ($i = 0; $i < 10; $i++) {
     echo $i . "<br>";
     
     //pause i ett sekund, kaller på pausefunksjon
-    pause(1);
+    sleep(1);
     // legger til tallene i summen
     $sum += $i;
 }
 //pause 2 sek fra telling er ferdig
-pause(2);
+sleep(2);
 //vis summen fra tellingen 0-9 (skal bli 45)
 echo "Ferdig å telle! Summen av tallene ble $sum";
 
