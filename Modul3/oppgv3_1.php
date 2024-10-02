@@ -9,7 +9,7 @@ $IkkeHendt = "2025-01-03";
 
 
 //sammenligne datoene
-if ($DagensDato > $HendelsesDato) {
+if ($DagensDato > $IkkeHendt) {
     echo "Hendelsen har allerede skjedd.";
 } else {
     echo "Hendelsen har ikke skjedd ennå.";

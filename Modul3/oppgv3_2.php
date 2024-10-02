@@ -4,7 +4,8 @@ viser telling på skjerm med ett sekund mellomrom
 beregner summen av tall 0-9
 viser summen 2sek etter ferdig telling
 */
-
+ob_implicit_flush(0);
+ob_end_flush();
 //lage pausefunksjon usleep står for delay i microsek
 function pause($seconds) {
     usleep($seconds *1000000);
@@ -13,10 +14,13 @@ function pause($seconds) {
 // lage en variabel som holder sum/tellingen
 $sum = 0;
 
+
 //For-løkke for å telle 0-9, $i går fra 0-10 for å få med tallet 9
 for ($i = 0; $i < 10; $i++) {
+    flush();
     //vis tall på skjerm med <br> mellom hvert tall
     echo $i . "<br>";
+    
     //pause i ett sekund, kaller på pausefunksjon
     pause(1);
     // legger til tallene i summen
