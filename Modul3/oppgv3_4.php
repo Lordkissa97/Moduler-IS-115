@@ -23,7 +23,7 @@ function sjekkFylke($kommune) {
 }}
 
 //bruk av funksjonen
-$soktKommune = "Kristiansand";
+$soktKommune = "kristiansand";
 $fylke = sjekkFylke($soktKommune);
 echo "$soktKommune $fylke.";
 

@@ -13,7 +13,7 @@
     <input type="number" id="startsaldo" name="startsaldo" required>
     <br>
     <label for="rente">Renteprosent:</label>
-    <input type="number" step="0.01" id="rente" name="rente" required>
+    <input type="number" step="0.1" id="rente" name="rente" required>
     <!-- la til step for å kunne skrive rente med desimal-->
     <br>
     <label for="antallAr">Antall år</label>
@@ -30,7 +30,7 @@
     $antallAr = $_POST['antallAr'];
 
     //Beregner og skriver ut saldo for hvert år
-    for ($i = 1; $i < $antallAr; $i++) {
+    for ($i = 1; $i <= $antallAr; $i++) {
         $nySaldo = $startsaldo * pow(1 + $rente, $i); //bruker pow for å regne ut eksponensiell vekst
         echo "Saldo etter $i år: $nySaldo<br>";
 

@@ -15,8 +15,9 @@ $kornPrRute = [];
 $kornPrRute[0] = 1;
 
 //bruker for-løkke til å beregne antall korn pr rute med å doble antallet for hver
-for ( $i = 1; $i < $Sjakkbrett; $i++ ) {
+for ( $i = 1; $i <= $Sjakkbrett; $i++ ) {
     $kornPrRute[$i] = $kornPrRute[$i - 1] * 2;
+    echo "Rute: " . $i . ". Korn: " . $kornPrRute[$i]. "<br>";
 }
 
 //deretter beregne totalt antall korn ved å summere array
