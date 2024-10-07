@@ -1,5 +1,5 @@
 <?php
-// Opprett en matrise med den eksisterende informasjonen om brukeren
+// Opprett en matrise med en eksisterende informasjonen om bruker
 $bruker = [
     'Navn' => 'Felix Amadeus',
     'Mobil' => '12345678',
@@ -25,15 +25,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Valider mobil
     if (empty($_POST['mobil'])) {
         $feil[] = "Mobilnummer er obligatorisk.";
+        //sjekker om verdien er numerisk (tall)
     } elseif (!is_numeric($_POST['mobil'])) {
-        $feil[] = "Mobilnummer må være et 8-sifret tall.";
-    } else {
+        $feil[] = "Mobilnummer kan kun inneholde tall.";
+    }
+    else {
+        // Sjekk om lengden er nøyaktig 8
+        if (strlen($_POST['mobil']) != 8) {
+            $feil[] = "Mobilnummer må være 8 siffer langt.";
+         
+        } else {
         $nyttMobil = htmlspecialchars(trim($_POST['mobil']));
         if ($nyttMobil !== $bruker['Mobil']) {
             $bruker['Mobil'] = $nyttMobil;
             echo "Mobilnummer oppdatert til: $nyttMobil<br>";
         }
-    }
+    }}
 
     // Valider e-post
     if (empty($_POST['epost'])) {
