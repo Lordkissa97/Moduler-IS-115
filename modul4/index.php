@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
 </head>
 <body>
-    <h1>Modul 3</h1>
+    <h1>Modul 4</h1>
     <ul>
-        <li><a href="oppgv4_1.php">Datosjekk</a></li>
-        <li><a href="oppgv4_2.php">Teller med pause</a></li>
-        <li><a href="registrer.php">Sjakk og hvete</a></li>
-        <li><a href="oppgv4_3.php">ny saldo</a></li>
-        <li><a href="oppgv4_4.php">Sjekk av fylkestilhørighet</a></li>
-        <li><a href="oppgv4_5.php">Sjakk og hvete</a></li>
+        <li><a href="oppgv4_1.php">Heltall array</a></li>
+        <li><a href="oppgv4_2.php">Brukerregistrering</a></li>
+        <li><a href="registrer.php">Brukeren</a></li>
+        <li><a href="oppgv4_3.php">Oppdatere brukerprofil</a></li>
+        <li><a href="oppgv4_4.php"></a></li>
+        <li><a href="oppgv4_5.php"><a></li>
     </ul>
 </body>
 </html>

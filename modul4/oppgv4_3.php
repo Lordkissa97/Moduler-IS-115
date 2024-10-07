@@ -1,55 +1,79 @@
 <?php
-// $bruker-arrayen er allerede definert i registrer.php
+// Opprett en matrise med den eksisterende informasjonen om brukeren
+$bruker = [
+    'Navn' => 'Ola Nordmann',
+    'Mobil' => '12345678',
+    'E-post' => 'ola@example.com'
+];
 
-//Sjekke om skjema er innsendt
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    //oppdater informasjon
-    $nyttNavn = $_POST["Navn"];
-    $nyMobil = $_POST["mobil"];
-    $nyEpost = $_POST["epost"];
+// Sjekk om skjemaet er sendt
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Samle eventuelle feil
+    $feil = [];
+
+    // Valider navn
+    if (empty($_POST['navn'])) {
+        $feil[] = "Navn er obligatorisk.";
+    } else {
+        $nyttNavn = htmlspecialchars(trim($_POST['navn']));
+        if ($nyttNavn !== $bruker['Navn']) {
+            $bruker['Navn'] = $nyttNavn;
+            echo "Navn oppdatert til: $nyttNavn<br>";
+        }
+    }
+
+    // Valider mobil
+    if (empty($_POST['mobil'])) {
+        $feil[] = "Mobilnummer er obligatorisk.";
+    } elseif (!is_numeric($_POST['mobil'])) {
+        $feil[] = "Mobilnummer må være et 8-sifret tall.";
+    } else {
+        $nyttMobil = htmlspecialchars(trim($_POST['mobil']));
+        if ($nyttMobil !== $bruker['Mobil']) {
+            $bruker['Mobil'] = $nyttMobil;
+            echo "Mobilnummer oppdatert til: $nyttMobil<br>";
+        }
+    }
+
+    // Valider e-post
+    if (empty($_POST['epost'])) {
+        $feil[] = "E-post er obligatorisk.";
+    } elseif (!filter_var($_POST['epost'], FILTER_VALIDATE_EMAIL)) {
+        $feil[] = "Ugyldig e-postadresse.";
+    } else {
+        $nyEpost = htmlspecialchars(trim($_POST['epost']));
+        if ($nyEpost !== $bruker['E-post']) {
+            $bruker['E-post'] = $nyEpost;
+            echo "E-post oppdatert til: $nyEpost<br>";
+        }
+    }
+
+    // Skriv ut eventuelle feil
+    if (!empty($feil)) {
+        echo "Følgende feil oppstod:<br>";
+        foreach ($feil as $melding) {
+            echo "$melding<br>";
+        }
+    }
 }
-
-// sjekke om det er blitt gjort endringer:
-if ($nyttNavn !== $bruker['Navn'] || $nyMobil !== $bruker['mobil']
-|| $nyEpost !== $bruker['epost']) {
-//validering samme som registrer.php
- //Validere 
- $errors = [];
- if (empty($navn)) {
-     $errors[] = "Navn er påkrevd:";
- }
- if (empty($mobil)) {
-     $errors[] = ("Mobilnummer er påkrevd:");
- }
- if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-     $errors[] = "Ugyldig e-postadresse:";
- }
-  // Hvis ingen feil, lagre i en midlertidlig array
-  if (empty($errors)) {
-    $bruker = [
-        "navn" => $navn,
-        "mobil" => $mobil,
-        "epost" => $email
-    ];
-//bekreftelsesmelding
-echo "Profilen er oppdatert.";
-} else {
-    echo "Ingen endringer ble gjort.";
-}}
-
-
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="no">
 <head>
-    <title>Min Profil</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brukerprofil</title>
 </head>
 <body>
-    <form method="post" action="">
-        <label for="navn">Navn:</label>
-        <input type="text" id="navn" name="navn" value="<?php echo $bruker['navn']; ?>">
-        <input type="submit" value="Oppdater">
+    <h2>Rediger Brukerprofil</h2>
+
+    <!-- Skjema for å vise og redigere brukerens informasjon -->
+    <form action="" method="post">
+        Navn: <input type="text" name="navn" value="<?= $bruker['Navn'] ?>"><br><br>
+        Mobilnummer: <input type="text" name="mobil" value="<?= $bruker['Mobil'] ?>"><br><br>
+        E-post: <input type="text" name="epost" value="<?= $bruker['E-post'] ?>"><br><br>
+        <input type="submit" value="Oppdater Profil">
     </form>
 </body>
 </html>
