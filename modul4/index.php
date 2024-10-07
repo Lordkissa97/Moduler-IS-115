@@ -9,10 +9,9 @@
     <ul>
         <li><a href="oppgv4_1.php">Heltall array</a></li>
         <li><a href="oppgv4_2.php">Brukerregistrering</a></li>
-        <li><a href="registrer.php">Brukeren</a></li>
         <li><a href="oppgv4_3.php">Oppdatere brukerprofil</a></li>
-        <li><a href="oppgv4_4.php"></a></li>
-        <li><a href="oppgv4_5.php"><a></li>
+        <li><a href="oppgv4_4.php">Multidimensjonell matrise</a></li>
+        <li><a href="oppgv4_5.php">Matrisematte<a></li>
     </ul>
 </body>
 </html>
