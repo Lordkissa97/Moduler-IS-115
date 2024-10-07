@@ -1,9 +1,9 @@
 <?php
 // Opprett en matrise med den eksisterende informasjonen om brukeren
 $bruker = [
-    'Navn' => 'Ola Nordmann',
+    'Navn' => 'Felix Amadeus',
     'Mobil' => '12345678',
-    'E-post' => 'ola@example.com'
+    'E-post' => 'Famadeus@blinker.no'
 ];
 
 // Sjekk om skjemaet er sendt
