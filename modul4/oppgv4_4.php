@@ -1,23 +1,26 @@
 <?php
-// Definerer en multidimensjonal matrise med informasjon om prosjekter
+// Definerer multidimensjonal matrise med informasjon om prosjekter
 $prosjekter = [
     [
         'Prosjektnavn' => 'Webutvikling',
         'Ansvarlig' => 'Janne Kristendottir',
         'Status' => 'Pågår',
-        'Startdato' => '2022-01-15'
+        'Startdato' => '2022-01-15',
+        'Sluttdato' => 'Våren 2025'
     ],
     [
         'Prosjektnavn' => 'Mobilapplikasjon',
         'Ansvarlig' => 'Julius Dagrømmer',
         'Status' => 'Ferdig',
-        'Startdato' => '2023-05-10'
+        'Startdato' => '2023-05-10',
+        'Sluttdato' => '2024-07-21'
     ],
     [
         'Prosjektnavn' => 'Datasikkerhet',
         'Ansvarlig' => 'Per I. Hagen',
         'Status' => 'Startet',
-        'Startdato' => '2022-09-01'
+        'Startdato' => '2022-09-01',
+        'Sluttdato' => 'Kontinuerlig'
     ]
 ];
 ?>
@@ -30,7 +33,7 @@ $prosjekter = [
     <title>Prosjektoversikt</title>
     <style>
         table {
-            width: 50%;
+            width: 70%;
             border-collapse: collapse;
         }
         table, th, td {
@@ -53,6 +56,7 @@ $prosjekter = [
             <th>Ansvarlig</th>
             <th>Status</th>
             <th>Startdato</th>
+            <th>Sluttdato/Beregnet Slutt</th>
         </tr>
         <?php
         // Går gjennom hver prosjektrad i matrisen og skriver ut informasjonen
@@ -62,6 +66,7 @@ $prosjekter = [
             echo "<td>{$prosjekt['Ansvarlig']}</td>";
             echo "<td>{$prosjekt['Status']}</td>";
             echo "<td>{$prosjekt['Startdato']}</td>";
+            echo "<td>{$prosjekt['Sluttdato']}</td>";
             echo "</tr>";
         }
         ?>
