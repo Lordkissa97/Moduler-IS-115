@@ -22,11 +22,12 @@ $max = max($tall);
 sort($tall);
 $midten = floor(count($tall) / 2);
 if (count($tall) % 2 == 0) {
-    // Partall antall elementer, ta gjennomsnittet av de to midterste
-    $median = ($tall[$midten - 1] + $tall[$midten]) / 2;
+    // Partall antall elementer, ta gjennomsnittet av de to midterste. Ettersom matrisen er kun 9 tall(oddetall)
+    //vil denne løkken før else kun bli tellende om man skal utvide matrisen til eventuelt partall
+    $medianen = ($tall[$midten - 1] + $tall[$midten]) / 2;
 } else {
     // Oddetall antall elementer, er medianen midterste element
-    $median = $tall[$midten];
+    $medianen = $tall[$midten];
 }
 
 // Skriv ut resultatene
@@ -35,5 +36,5 @@ echo "Summen av alle tall: $sum<br>";
 echo "Gjennomsnitt av tallene: $gjennomsnitt<br>";
 echo "Minste tall i matrisen: $min<br>";
 echo "Største tall i matrisen: $max<br>";
-echo "Median til matrisen: $median<br>";
+echo "Median til matrisen: $medianen<br>";
 ?>
