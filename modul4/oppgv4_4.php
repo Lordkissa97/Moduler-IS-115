@@ -3,25 +3,25 @@
 $prosjekter = [
     [
         'Prosjektnavn' => 'Webutvikling',
-        'Ansvarlig' => 'Ola Nordmann',
+        'Ansvarlig' => 'Janne Kristendottir',
         'Status' => 'Pågår',
-        'Startdato' => '2023-01-15'
+        'Startdato' => '2022-01-15'
     ],
     [
         'Prosjektnavn' => 'Mobilapplikasjon',
-        'Ansvarlig' => 'Kari Nordmann',
+        'Ansvarlig' => 'Julius Dagrømmer',
         'Status' => 'Ferdig',
-        'Startdato' => '2022-05-10'
+        'Startdato' => '2023-05-10'
     ],
     [
         'Prosjektnavn' => 'Datasikkerhet',
-        'Ansvarlig' => 'Per Hansen',
+        'Ansvarlig' => 'Per I. Hagen',
         'Status' => 'Startet',
-        'Startdato' => '2023-09-01'
+        'Startdato' => '2022-09-01'
     ]
 ];
 ?>
-
+<!-- Derretter lage html skjema hvor en kan oppdatere/redigere profil -->
 <!DOCTYPE html>
 <html lang="no">
 <head>
@@ -55,7 +55,7 @@ $prosjekter = [
             <th>Startdato</th>
         </tr>
         <?php
-        // Gå gjennom hver prosjektrad i matrisen og skriv ut informasjonen
+        // Går gjennom hver prosjektrad i matrisen og skriver ut informasjonen
         foreach ($prosjekter as $prosjekt) {
             echo "<tr>";
             echo "<td>{$prosjekt['Prosjektnavn']}</td>";

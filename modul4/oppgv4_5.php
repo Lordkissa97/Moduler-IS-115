@@ -12,28 +12,28 @@ $sum = array_sum($tall);
 // Regn ut gjennomsnittet av tallene
 $gjennomsnitt = $sum / count($tall);
 
-// Finn det minste tallet
+// Finne det minste tallet
 $min = min($tall);
 
-// Finn det største tallet
+// Finne det største tallet
 $max = max($tall);
 
 // Finne medianen, sortere matrisen
 sort($tall);
 $midten = floor(count($tall) / 2);
 if (count($tall) % 2 == 0) {
-    // Hvis partall antall elementer, ta gjennomsnittet av de to midterste
+    // Partall antall elementer, ta gjennomsnittet av de to midterste
     $median = ($tall[$midten - 1] + $tall[$midten]) / 2;
 } else {
-    // Hvis oddetall antall elementer, er medianen midterste element
+    // Oddetall antall elementer, er medianen midterste element
     $median = $tall[$midten];
 }
 
 // Skriv ut resultatene
-echo "Matrisen: " . implode(", ", $tall) . "<br>";
-echo "Sum: $sum<br>";
-echo "Gjennomsnitt: $gjennomsnitt<br>";
-echo "Minste tall: $min<br>";
-echo "Største tall: $max<br>";
-echo "Median: $median<br>";
+echo "Matrisen sine tall: " . implode(", ", $tall) . "<br>";
+echo "Summen av alle tall: $sum<br>";
+echo "Gjennomsnitt av tallene: $gjennomsnitt<br>";
+echo "Minste tall i matrisen: $min<br>";
+echo "Største tall i matrisen: $max<br>";
+echo "Median til matrisen: $median<br>";
 ?>
