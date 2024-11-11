@@ -3,7 +3,7 @@
 
 // lage brukerklasse
 class Bruker {
-    // klassen public egenskaper
+    // klassen sine egenskaper
     public $fornavn;
     public $etternavn;
     public $brukernavn;
